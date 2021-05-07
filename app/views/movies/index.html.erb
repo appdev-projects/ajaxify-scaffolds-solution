@@ -15,7 +15,39 @@
   </thead>
 
   <tbody>
-    <%= render @movies %>
+    <%= form_with(model: Movie.new, local: false) do |form| %>
+    <tr>
+      <td>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+      </td>
+
+      <td>
+        <%= form.label :description %>
+        <%= form.text_area :description %>
+      </td>
+
+      <td>
+        <%= form.label :duration %>
+        <%= form.number_field :duration %>
+      </td>
+
+      <td>
+        <%= form.label :year %>
+        <%= form.number_field :year %>
+      </td>
+
+      <td>
+        <%= form.label :director_id %>
+        <%= form.collection_select :director_id, Director.order(:name), :id, :name %>
+      </td>
+
+      <td class="actions">
+        <%= form.submit %>
+      </td>
+    </tr>
+    <% end %>
+    <%= render @movies.order(created_at: :desc) %>
   </tbody>
 </table>
 
