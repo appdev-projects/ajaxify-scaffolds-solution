@@ -14,8 +14,7 @@
     </tr>
   </thead>
 
-  <tbody>
-    <%= form_with(model: Movie.new, local: false) do |form| %>
+  <%= form_with(model: Movie.new, local: false, id: "new_movie_form") do |form| %>
     <tr>
       <td>
         <%= form.label :title %>
@@ -46,7 +45,9 @@
         <%= form.submit %>
       </td>
     </tr>
-    <% end %>
+  <% end %>
+  
+  <tbody id="movies">
     <%= render @movies.order(created_at: :desc) %>
   </tbody>
 </table>
