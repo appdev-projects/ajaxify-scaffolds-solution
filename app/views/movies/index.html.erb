@@ -34,7 +34,7 @@
 
       <td>
         <%= form.label :description %>
-        <%= form.text_field :description %>
+        <%= form.text_area :description %>
       </td>
 
       <td>
@@ -52,7 +52,3 @@
     <%= render @movies.order(created_at: :desc, id: :desc) %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Movie', new_movie_path %>
