@@ -1,3 +1,9 @@
 <div id="<%= dom_id(movie) %>_description">
-  <%= link_to truncate(movie.description, length: 140), movie_edit_description_path(movie), remote: true %>
+  <%= link_to movie_edit_description_path(movie), remote: true do %>
+    <% if movie.description.present? %>
+      <%= truncate movie.description, length: 140 %>
+    <% else %>
+      Add description
+    <% end %>    
+  <% end %>
 </div>
