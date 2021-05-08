@@ -49,7 +49,7 @@
   <% end %>
   
   <tbody id="movies">
-    <%= render @movies.order(created_at: :desc) %>
+    <%= render @movies.order(created_at: :desc, id: :desc) %>
   </tbody>
 </table>
 
