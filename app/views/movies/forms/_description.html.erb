@@ -2,7 +2,9 @@
   <%= form_with(model: movie, local: false) do |form| %>
     <div class="field">
       <%= form.label :description, for: "#{dom_id(movie)}_description" %>
-      <%= form.text_field :description, id: "#{dom_id(movie)}_description" %>
+      <%= form.text_area :description, id: "#{dom_id(movie)}_description" %>
     </div>
+
+    <%= form.submit %>
   <% end %>
 </div>
