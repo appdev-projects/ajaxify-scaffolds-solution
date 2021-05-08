@@ -2,7 +2,7 @@
   <%= form_with(model: movie, local: false) do |form| %>
     <div class="field">
       <%= form.label :director_id %>
-    <%= form.collection_select :director_id, Director.order(:name), :id, :name, {}, class: "submit_on_select" %>
+      <%= form.collection_select :director_id, Director.order(:name), :id, :name, {}, onchange: 'Rails.fire(this.form, "submit")' %>
     </div>
   <% end %>
 </div>
